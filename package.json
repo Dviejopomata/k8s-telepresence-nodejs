@@ -1,0 +1,6 @@
+{
+  "name": "test-minimum-k8s",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}

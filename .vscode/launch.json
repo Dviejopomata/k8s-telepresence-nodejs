@@ -1,0 +1,34 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "port": 3001
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Remote",
+      "address": "192.168.39.239",
+      "port": 32394,
+      "restart": true,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/service"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Docker: Attach to Node",
+      "port": 3001,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/service",
+      "protocol": "inspector"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dvp
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: dvp
+    spec:
+      imagePullSecrets:
+        - name: registry
+      containers:
+      - name: server
+        image: registry.nextagilesoftdev.com/dviejo/gt-new/node-dev1
+        imagePullPolicy: Always
+        ports:
+        - name: http-api
+          containerPort: 3000
+        - name: remote-debug
+          containerPort: 3001

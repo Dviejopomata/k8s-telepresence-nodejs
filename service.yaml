@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvp
+spec:
+  type: NodePort
+  selector:
+    app: dvp
+  ports:
+  - port: 3000
+    name: http-api
+    targetPort: http-api
+  - port: 3001
+    name: remote-debug
+    targetPort: remote-debug

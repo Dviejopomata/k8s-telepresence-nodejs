@@ -1,8 +1,5 @@
 current_dir = $(shell pwd)
 
-curr_dir:
-	echo ${current_dir}
-
 swap:
 	telepresence --swap-deployment dvp --docker-run --rm -it -v $(current_dir):/service node-dev1:latest
 
@@ -34,3 +31,9 @@ push:
 
 get_urls:
 	sudo minikube service --url dvp
+
+create_config:
+	kubectl create -f config.yaml
+
+delete_config:
+	kubectl delete -f config.yaml

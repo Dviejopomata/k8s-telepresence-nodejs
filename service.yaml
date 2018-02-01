@@ -11,6 +11,8 @@ spec:
   - port: 3000
     name: http-api
     targetPort: http-api
+    nodePort: 30507
   - port: 3001
     name: remote-debug
     targetPort: remote-debug
+    nodePort: 30508

@@ -15,7 +15,7 @@
       "request": "attach",
       "name": "Attach to Remote",
       "address": "192.168.39.239",
-      "port": 32394,
+      "port": 30508,
       "restart": true,
       "localRoot": "${workspaceFolder}",
       "remoteRoot": "/service"

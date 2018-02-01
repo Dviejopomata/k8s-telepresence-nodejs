@@ -1,5 +1,5 @@
 const http = require("http");
-const pingPython = () =>
+const callPython = () =>
   new Promise((resolve, reject) => {
     const req = http.get("http://hello-world:8100", res => {
       let data = "";
@@ -7,6 +7,7 @@ const pingPython = () =>
       res.on("end", () => resolve(data));
       res.on("error", reject);
     });
+    req.on("error", reject);
     req.end();
   });
 
@@ -38,7 +39,7 @@ const server = http.createServer((req, res) => {
     return res.end();
   }
   if (req.url.includes("python")) {
-    pingPython()
+    callPython()
       .then(data => {
         res.write(data);
         res.end();
@@ -49,8 +50,8 @@ const server = http.createServer((req, res) => {
         res.end();
       });
   } else {
-    var a = "223232";
-    res.write(`Hello world instanceId=${id} ${a} `);
+    var levelKey = process.env.SPECIAL_LEVEL_KEY + " added"
+    res.write(`Level:${levelKey} Hello world cambiado instanceId=${id}`);
     res.end();
   }
 });

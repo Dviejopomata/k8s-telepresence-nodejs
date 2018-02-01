@@ -23,3 +23,12 @@ spec:
           containerPort: 3000
         - name: remote-debug
           containerPort: 3001
+        env:
+          # Define the environment variable
+          - name: SPECIAL_LEVEL_KEY
+            valueFrom:
+              configMapKeyRef:
+                # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+                name: special-config
+                # Specify the key associated with the value
+                key: special.how
